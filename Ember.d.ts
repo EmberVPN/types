@@ -44,4 +44,20 @@ declare namespace Ember {
 		}[];
 	}
 
+	// Plan
+	export interface Plan {
+		id: string;
+		name: string;
+		description: string;
+		image: string;
+		meta: Record<string, string>;
+		prices: {
+			id: string;
+			currency: string;
+			type: "one-time" | "recurring";
+			amount: number;
+			interval: number;
+		}[];
+	}
+
 }

@@ -19,4 +19,8 @@ declare namespace EmberAPI {
 		servers: Record<string, Ember.Server>;
 	}
 
+	interface Store {
+		plans: Record<string, Ember.Plan>;
+	}
+
 }
