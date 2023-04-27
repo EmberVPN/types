@@ -50,6 +50,8 @@ declare namespace Ember {
 		name: string;
 		description: string;
 		image: string;
+		default_price: string;
+		features: string[];
 		meta: Record<string, string>;
 		prices: {
 			id: string;
