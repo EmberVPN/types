@@ -59,6 +59,7 @@ declare namespace Ember {
 			type: "one-time" | "recurring";
 			amount: number;
 			interval: number;
+			tax: number;
 		}[];
 	}
 
