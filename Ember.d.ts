@@ -39,9 +39,20 @@ declare namespace Ember {
 		files: {
 			name: string;
 			sha: string;
-			arch: string;
 			download_url: string;
 		}[];
+	}
+
+	// Price
+	export interface Price {
+		isActive: boolean;
+		isBestValue: boolean;
+		id: string;
+		currency: string;
+		type: "one-time" | "recurring";
+		amount: number;
+		interval: number;
+		tax: number;
 	}
 
 	// Plan
@@ -53,14 +64,7 @@ declare namespace Ember {
 		default_price: string;
 		features: string[];
 		meta: Record<string, string>;
-		prices: {
-			id: string;
-			currency: string;
-			type: "one-time" | "recurring";
-			amount: number;
-			interval: number;
-			tax: number;
-		}[];
+		prices: Price[];
 	}
 
 }
