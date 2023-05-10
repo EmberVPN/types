@@ -20,7 +20,7 @@ declare namespace Ember {
 		version: string;
 		files: {
 			name: string;
-			arch: string;
+			sha: string;
 			download_url: string;
 		}[];
 	}
