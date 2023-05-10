@@ -46,14 +46,7 @@ declare namespace Ember {
 		default_price: string;
 		features: string[];
 		meta: Record<string, string>;
-		prices: {
-			id: string;
-			currency: string;
-			type: "one-time" | "recurring";
-			amount: number;
-			interval: number;
-			tax: number;
-		}[];
+		prices: Price[];
 	}
 
 	// Subscription
