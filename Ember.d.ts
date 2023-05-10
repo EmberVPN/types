@@ -1,36 +1,18 @@
 declare namespace Ember {
-	
-	// Server Location
-	export interface GeoLocation {
-		ip: string;
-		continent_code: string;
-		continent_name: string;
-		country_code2: string;
-		country_name: string;
-		country_capital: string;
-		state_prov: string;
-		district: string;
-		city: string;
-		zipcode: string;
-		latitude: string;
-		longitude: string;
-		isp: string;
-		connection_type: string;
-		organization: string;
-	}
 
-	// Server Info
+	// Server
 	export interface Server {
 		ip: string;
-		iface: string;
-		network: string;
-		subnet: string;
-		port: string;
-		proto: string;
-		hostname: string;
+		port: number;
+		proto: "tcp" | "udp";
 		hash: string;
-		ping: number;
-		location: GeoLocation;
+		location: {
+			latitude: number;
+			longitude: number;
+			countryCode: string;
+			country: string;
+			state: string;
+		};
 	}
 
 	// Platform Download
@@ -38,7 +20,7 @@ declare namespace Ember {
 		version: string;
 		files: {
 			name: string;
-			sha: string;
+			arch: string;
 			download_url: string;
 		}[];
 	}
@@ -49,7 +31,7 @@ declare namespace Ember {
 		isBestValue: boolean;
 		id: string;
 		currency: string;
-		type: "one-time" | "recurring";
+		type: "one_time" | "recurring";
 		amount: number;
 		interval: number;
 		tax: number;
@@ -65,6 +47,20 @@ declare namespace Ember {
 		features: string[];
 		meta: Record<string, string>;
 		prices: Price[];
+	}
+
+	// Subscription
+	export interface Subscription {
+		id: string;
+		cancel_at_period_end: boolean;
+		current_period_start: number;
+		current_period_end: number;
+		status: "active" | "canceled" | "incomplete" | "incomplete_expired" | "past_due" | "trialing" | "unpaid";
+		default_payment_method: import("@stripe/stripe-js").PaymentMethod;
+		plan: {
+			product: Plan;
+		}
+		
 	}
 
 }
