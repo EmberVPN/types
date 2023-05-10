@@ -23,4 +23,15 @@ declare namespace EmberAPI {
 		plans: Record<string, Ember.Plan>;
 	}
 
+	interface SecretIntent {
+		intent: string;
+		secret: string;
+		public: string;
+	}
+
+	interface Subscription {
+		active: Ember.Subscription;
+		inactive: Ember.Subscription[];
+	}
+
 }
