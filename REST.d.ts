@@ -12,7 +12,8 @@ declare namespace REST {
 declare namespace EmberAPI {
 
 	interface ClientDownloads {
-		platform: Record<string, Ember.PlatformDownload>;
+		assets: Ember.Asset[];
+		version: string;
 	}
 
 	interface Servers {

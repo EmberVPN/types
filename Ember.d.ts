@@ -16,13 +16,13 @@ declare namespace Ember {
 	}
 
 	// Platform Download
-	export interface PlatformDownload {
-		version: string;
-		files: {
-			name: string;
-			sha: string;
-			download_url: string;
-		}[];
+	export interface Asset {
+		name: string;
+		downloadUrl: string;
+		size: number;
+		downloadCount: number;
+		lastModified: number;
+		platform: string;
 	}
 
 	// Price
