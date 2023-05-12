@@ -14,6 +14,7 @@ declare namespace EmberAPI {
 	interface ClientDownloads {
 		assets: Ember.Asset[];
 		version: string;
+		timestamp: number;
 	}
 
 	interface Servers {
