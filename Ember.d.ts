@@ -54,6 +54,7 @@ declare namespace Ember {
 		id: string;
 		cancel_at_period_end: boolean;
 		current_period_start: number;
+		start_date: number;
 		current_period_end: number;
 		status: "active" | "canceled" | "incomplete" | "incomplete_expired" | "past_due" | "trialing" | "unpaid";
 		default_payment_method: import("@stripe/stripe-js").PaymentMethod;
@@ -89,27 +90,7 @@ declare namespace Ember {
 			}[]
 		}
 		plan: {
-			product: {
-				id: string
-				object: string
-				active: boolean
-				attributes: any[]
-				created: number
-				default_price: string
-				description: string
-				images: string[]
-				livemode: boolean
-				metadata: any
-				name: string
-				package_dimensions: any
-				shippable: any
-				statement_descriptor: any
-				tax_code: any
-				type: string
-				unit_label: any
-				updated: number
-				url: any
-			}
+			product: Omit<Plan, "prices" | "image"> & { images: string[], metadata: Record<string, string> };
 			aggregate_usage: any
 			interval: string
 			interval_count: number
