@@ -1,3 +1,5 @@
+declare type Stripe = import("stripe").Stripe;
+
 declare namespace REST {
 	type APIResponse<T = unknown> = T & { success: true } | APIError;
 	type Status = `${ number } ${ string }`;
@@ -34,6 +36,10 @@ declare namespace EmberAPI {
 	interface Subscription {
 		active: Ember.Subscription;
 		inactive: Ember.Subscription[];
+	}
+
+	interface PaymentMethods {
+		methods: Stripe.PaymentMethod[];
 	}
 
 }
