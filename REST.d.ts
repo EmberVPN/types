@@ -42,4 +42,8 @@ declare namespace EmberAPI {
 		methods: Stripe.PaymentMethod[];
 	}
 
+	interface Invoices {
+		invoices: Stripe.Invoice[];
+	}
+
 }
