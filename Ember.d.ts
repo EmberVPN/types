@@ -1,4 +1,5 @@
 declare namespace Ember {
+	export type StripeInvoice = import("stripe").default.Invoice;
 
 	// Server
 	export interface Server {
@@ -50,84 +51,11 @@ declare namespace Ember {
 	}
 
 	// Invoice
-	export interface Invoice {
-		id: string
-		object: string
-		account_country: string
-		account_name: string
-		account_tax_ids: any
-		amount_due: number
-		amount_paid: number
-		amount_remaining: number
-		amount_shipping: number
-		application: any
-		application_fee_amount: any
-		attempt_count: number
-		attempted: boolean
-		auto_advance: boolean
-		automatic_tax: AutomaticTax
-		billing_reason: string
-		charge: string
-		collection_method: string
-		created: number
-		currency: string
-		custom_fields: any
-		customer: string
-		customer_address: any
-		customer_email: string
-		customer_name: string
-		customer_phone: any
-		customer_shipping: any
-		customer_tax_exempt: string
-		customer_tax_ids: any[]
-		default_payment_method: any
-		default_source: any
-		default_tax_rates: any[]
-		description: any
-		discount: any
-		discounts: any[]
-		due_date: any
-		ending_balance: number
-		footer: any
-		from_invoice: any
-		hosted_invoice_url: string
-		invoice_pdf: string
-		last_finalization_error: any
-		latest_revision: any
-		lines: Lines
-		livemode: boolean
-		metadata: Metadata4
-		next_payment_attempt: any
-		number: string
-		on_behalf_of: any
-		paid: boolean
-		paid_out_of_band: boolean
-		payment_intent: string
-		payment_settings: PaymentSettings
-		period_end: number
-		period_start: number
-		post_payment_credit_notes_amount: number
-		pre_payment_credit_notes_amount: number
-		quote: any
-		receipt_number: any
-		rendering_options: any
-		shipping_cost: any
-		shipping_details: any
-		starting_balance: number
-		statement_descriptor: any
-		status: string
-		status_transitions: StatusTransitions
-		subscription: string
-		subtotal: number
-		subtotal_excluding_tax: number
-		tax: any
-		test_clock: any
-		total: number
-		total_discount_amounts: any[]
-		total_excluding_tax: number
-		total_tax_amounts: any[]
-		transfer_data: any
-		webhooks_delivered_at: number
+	export interface Invoice extends StripeInvoice {
+		charge: import("stripe").default.Charge;
+		lines: {
+			data: import("stripe").default.InvoiceLineItem[];
+		};
 	}
 
 	// Subscription
@@ -138,7 +66,7 @@ declare namespace Ember {
 		start_date: number;
 		current_period_end: number;
 		status: "active" | "canceled" | "incomplete" | "incomplete_expired" | "past_due" | "trialing" | "unpaid";
-		default_payment_method: import("@stripe/stripe-js").PaymentMethod;
+		default_payment_method: Stripe.PaymentMethod;
 		items: {
 			data: {
 				price: {
