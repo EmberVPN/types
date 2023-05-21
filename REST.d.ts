@@ -46,4 +46,8 @@ declare namespace EmberAPI {
 		invoices: Stripe.Invoice[];
 	}
 
+	interface MFASetup {
+		qr: string;
+	}
+
 }
