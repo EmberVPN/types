@@ -17,6 +17,7 @@ declare namespace EmberAPI {
 		assets: Ember.Asset[];
 		version: string;
 		timestamp: number;
+		openvpn: string;
 	}
 
 	interface Servers {
