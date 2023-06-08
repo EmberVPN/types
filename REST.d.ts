@@ -16,6 +16,7 @@ declare namespace EmberAPI {
 	interface ClientDownloads {
 		assets: Ember.Asset[];
 		version: string;
+		downloadCount: number;
 		timestamp: number;
 		openvpn: string;
 	}
