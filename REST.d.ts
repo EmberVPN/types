@@ -25,7 +25,7 @@ declare namespace EmberAPI {
 			downloadCount: number;
 			lastModified: number;
 			platform: string;
-		}>;
+		}[]>;
 		dependencies: Record<string, {
 			latest: string;
 			assets: Record<string, string[]>;
