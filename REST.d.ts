@@ -14,11 +14,22 @@ declare namespace REST {
 declare namespace EmberAPI {
 
 	interface ClientDownloads {
-		assets: Ember.Asset[];
-		version: string;
-		downloadCount: number;
+		success: boolean;
+		totalDownloads: number;
 		timestamp: number;
-		openvpn: string;
+		latest: string;
+		assets: Record<string, {
+			name: string;
+			downloadUrl: string;
+			size: number;
+			downloadCount: number;
+			lastModified: number;
+			platform: string;
+		}>;
+		dependencies: Record<string, {
+			latest: string;
+			assets: Record<string, string[]>;
+		}>;
 	}
 
 	interface Servers {
