@@ -76,22 +76,15 @@ declare namespace Ember {
 					billing_scheme: string
 					created: number
 					currency: string
-					custom_unit_amount: any
 					livemode: boolean
-					lookup_key: any
 					metadata: Metadata2
-					nickname: any
 					product: string
 					recurring: {
-						aggregate_usage: any
 						interval: string
 						interval_count: number
-						trial_period_days: any
 						usage_type: string
 					}
 					tax_behavior: string
-					tiers_mode: any
-					transform_quantity: any
 					type: string
 					unit_amount: number
 					unit_amount_decimal: string
@@ -100,10 +93,8 @@ declare namespace Ember {
 		}
 		plan: {
 			product: Omit<Plan, "prices" | "image"> & { images: string[], metadata: Record<string, string> };
-			aggregate_usage: any
 			interval: string
 			interval_count: number
-			trial_period_days: any
 			usage_type: string
 			start_date: number
 		}
